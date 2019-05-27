@@ -1,0 +1,28 @@
+.title{
+    margin: 0;
+    padding: 1rem 0;
+    text-align: center;
+    color: #fff;
+    background: #333;
+}
+.container{
+   display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+
+    &__textarea{
+        width: 45vw;
+        height: 80vh;
+        overflow: auto;
+        resize: none;
+        padding: .5rem;
+    }
+
+    &__render{
+        width: 45vw;
+        height: 80vh;
+        background: #333;
+        color: #fff;
+        padding: .5rem;
+    }
+}

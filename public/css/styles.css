@@ -119,7 +119,9 @@ body { background-color: #ddd; width: 100vw; }
 
 .container__textarea { width: 45vw; height: 80vh; overflow: auto; resize: none; padding: .5rem; }
 
-.container__render { width: 45vw; height: 80vh; background: #333; color: #fff; padding: .5rem; line-height: 1.2; }
+.container__render { width: 45vw; height: 80vh; background: #333; color: #fff; padding: .5rem; line-height: .7rem; }
+
+.selector { color: red; }
 
 .bracket { color: orangered; }
 

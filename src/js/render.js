@@ -7,16 +7,45 @@ document.getElementById('button').addEventListener('click', (e) => {
 })
 
 const formatCode = (text) => {
-    let newText = '<pre>'
+    // let newText = '<pre>'
+    // const selector = getSelector(text)
+    // text = text.replace(selector, '')
+    // newText += convertCharacter(selector, 'selector')
+    // newText += selector
 
-    for (const character of text) {
-        if (character == '{' || character == '}') newText += convertCharacter(character, 'bracket')
-        else if (character == ';') newText += convertCharacter(character, 'semicolon')
-        else if (character == ':') newText += convertCharacter(character, 'twoPoints')
-        else newText += character
-    }
+    // for (const character of text) {
+    //     if (character == '{' || character == '}') newText += convertCharacter(character, 'bracket')
+    //     else if (character == ';') newText += convertCharacter(character, 'semicolon')
+    //     else if (character == ':') newText += convertCharacter(character, 'twoPoints')
+    //     else newText += character
+    // }
 
-    codeRender.innerHTML = newText + '</pre>'
+    getPropertyOrValue(text)
+
+    //codeRender.innerHTML = newText + '</pre>'
 }
 
-const convertCharacter = (character, classname) => `<span class=${classname}>${character}</span>`
+const convertCharacter = (character, classname) => {
+    if (classname == 'twoPoints') return `<span class=${classname}>${character}</span>`
+    else if (classname == 'semicolon' || classname == 'bracket') return `<span class=${classname}>${character}</span><br>`
+    else if (classname == 'selector') return `<span class=${classname}>${character}</span>`
+}
+
+const getSelector = (text) => {
+    let selector = ''
+    for (const character of text) {
+        if (character == '.') {
+            for (const letter of text) {
+                if (letter != ' ') {
+                    selector += letter
+                } else break
+            }
+        }
+    }
+    return selector
+}
+
+const getPropertyOrValue = (text) => {
+    let newText = ''
+    console.log(text.split('}'))
+}

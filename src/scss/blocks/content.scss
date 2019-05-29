@@ -1,16 +1,17 @@
-.title{
+.title {
     margin: 0;
     padding: 1rem 0;
     text-align: center;
     color: #fff;
     background: #333;
 }
-.container{
-   display: flex;
+
+.container {
+    display: flex;
     justify-content: space-around;
     padding: 1rem;
 
-    &__textarea{
+    &__textarea {
         width: 45vw;
         height: 80vh;
         overflow: auto;
@@ -18,11 +19,24 @@
         padding: .5rem;
     }
 
-    &__render{
+    &__render {
         width: 45vw;
         height: 80vh;
         background: #333;
         color: #fff;
         padding: .5rem;
+        line-height: 1.2;
     }
+}
+
+.bracket {
+    color: orangered;
+}
+
+.semicolon {
+    color: red;
+}
+
+.twoPoints {
+    color: orange;
 }

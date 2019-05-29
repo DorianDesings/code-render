@@ -1,24 +1,22 @@
 const codeText = document.getElementById('code-text')
 const codeRender = document.getElementById('code-render')
 
-let newText=''
-
-
-document.getElementById('button').addEventListener('click', (e)=>{
+document.getElementById('button').addEventListener('click', (e) => {
     const text = codeText.value
-    if(text.trim().length >0) formatCode(text)
-    console.log(newText)
+    if (text.trim().length > 0) formatCode(text)
 })
 
-const formatCode = (text) =>{
-    newText += getSelector(text)
-    newText += getComas(text)
-    newText += getSemicolons(text)
-    newText += getwoPoints(text)
+const formatCode = (text) => {
+    let newText = '<pre>'
 
+    for (const character of text) {
+        if (character == '{' || character == '}') newText += convertCharacter(character, 'bracket')
+        else if (character == ';') newText += convertCharacter(character, 'semicolon')
+        else if (character == ':') newText += convertCharacter(character, 'twoPoints')
+        else newText += character
+    }
+
+    codeRender.innerHTML = newText + '</pre>'
 }
 
-const getSelector = (text) =>text.substring(0,text.indexOf('{')).replace(text,`<span class>${text}</span>`)
-const getComas = (text) => text.replace(',', `<span class="coma">,</span>`)
-const getSemicolons = (text) => text.replace(';', `<span class="semicolon">;</span>`)
-const getwoPoints = (text) => text.replace(':', `<span class="two-points">:</span>`)
+const convertCharacter = (character, classname) => `<span class=${classname}>${character}</span>`
